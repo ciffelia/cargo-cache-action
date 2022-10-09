@@ -3,7 +3,7 @@ description: Cache cargo dependencies
 
 inputs:
   workdir:
-    default: '.'
+    default: .
 
 runs:
   using: composite

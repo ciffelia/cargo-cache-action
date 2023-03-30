@@ -4,6 +4,8 @@ description: Cache cargo dependencies
 inputs:
   workdir:
     default: .
+  hash-files:
+    default: '**/Cargo.lock'
 
 runs:
   using: composite
@@ -17,4 +19,4 @@ runs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           ${{ inputs.workdir }}/target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        key: ${{ runner.os }}-cargo-${{ hashFiles(inputs.hash-files) }}
